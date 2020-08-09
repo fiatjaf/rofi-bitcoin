@@ -34,7 +34,7 @@ func main() {
 		w2 := make(chan bool, 1)
 		go func() {
 			if resp, err := req.Get("https://blockstream.info/api/blocks/tip/height"); err == nil {
-				if tip, err := strconv.ParseInt(resp.String(), 64, 10); err == nil {
+				if tip, err := strconv.ParseInt(resp.String(), 10, 64); err == nil {
 					for i := tip; i > tip-5; i-- {
 						fmt.Printf("block: %d\n", i)
 					}
